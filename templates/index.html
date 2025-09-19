@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Email Spam Classifier</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; }
+      textarea { width: 90%; max-width: 800px; }
+      .result { margin-top: 20px; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <h1>Email Spam Classifier</h1>
+    <p>Paste an email or message below and click <strong>Classify</strong>.</p>
+
+    <form method="POST">
+        <textarea name="message" rows="8" placeholder="Paste email/message here..." required></textarea><br>
+        <button type="submit">Classify</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <strong>Prediction:</strong> {{ prediction }}
+        </div>
+    {% endif %}
+
+    <hr>
+    <p>Programmatic endpoint (POST JSON): <code>/predict</code> — { "message": "..." }</p>
+</body>
+</html>
